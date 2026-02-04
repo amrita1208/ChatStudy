@@ -73,7 +73,63 @@ Client-server chat applications are versatile tools that facilitate real-time co
 
 Client-server chat applications are foundational to real-time communication over networks. They incorporate principles of socket programming, communication protocols, and security mechanisms to provide a seamless user experience. Understanding the basics of client-server chat applications is essential for developers involved in networked application development, as they form the backbone of various collaborative communication systems. As technology evolves, chat applications continue to adapt, incorporating new features and technologies to enhance user interaction and connectivity.
 
+## Algorithm:
+Create a TCP socket on both the client and server sides and The server binds to a specified IP address and port number and listens for incoming connections. The client connects to the server using the same IP address and port number. After connection, the client sends messages to the server and receives responses and The server receives messages from the client and sends replies back. The communication continues until the message "quit" is sent. Finally, both the client and server close their sockets and terminate the connection.
 
+## program:
+chatclient.py;
+```
+import socket
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+client.connect(("localhost", 9999))
+
+done=False
+
+while not done:
+    client.send(input("Message ").encode('utf-8'))
+    msg = client.recv(1024).decode('utf-8')
+
+    if msg == 'quit':
+        done=True
+    else:
+        print(msg)
+
+
+
+client.close()
+```
+chatserver.py;
+```
+import socket
+from base64 import decode
+from operator import truediv
+
+server =socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('localhost', 9999))
+server.listen()
+client,addr=server.accept()
+
+done = False
+
+while not done:
+    msg = client.recv(1024).decode('utf-8')
+
+    if msg == 'quit':
+        done = True
+    else:
+        print(msg)
+
+    client.send(input("Message ").encode('utf-8'))
+
+
+client.close()
+server.close()
+```
+## output:
+<img width="1458" height="985" alt="image" src="https://github.com/user-attachments/assets/a68abe9f-c0eb-40b0-a0ea-344fceb28c57" />
+<img width="1390" height="964" alt="image" src="https://github.com/user-attachments/assets/29c371e4-aa74-45bc-829c-303058add52b" />
 ## Result:
 
 Thus the study on Client Server Chat Applications has been performed
