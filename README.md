@@ -130,7 +130,6 @@ server.close()
 ## output:
 <img width="1458" height="985" alt="image" src="https://github.com/user-attachments/assets/a68abe9f-c0eb-40b0-a0ea-344fceb28c57" />
 <img width="1390" height="964" alt="image" src="https://github.com/user-attachments/assets/29c371e4-aa74-45bc-829c-303058add52b" />
- Result:
-
+## Result:
 Thus the study on Client Server Chat Applications has been performed
 
